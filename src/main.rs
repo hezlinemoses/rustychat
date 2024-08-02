@@ -1,10 +1,11 @@
 mod single_threaded;
+mod multi_threaded;
 
 use clap::{value_parser, Arg, Command};
 
 fn main() {
     let matches = Command::new("rusty chat")
-    .author("frigginPan")
+    .author("frigginPAN")
     .about("Chat server for learning")
     .version("0.1")
     .arg(
@@ -19,7 +20,8 @@ fn main() {
     ).get_matches();
     
     let port = matches.get_one::<u32>("port").unwrap();
-    single_threaded::single_threaded_server(port);
+    // single_threaded::single_threaded_server(port);
+    multi_threaded::multi_threaded_server(port);
 }
 
 
