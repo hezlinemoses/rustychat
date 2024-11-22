@@ -1,5 +1,7 @@
 mod single_threaded;
 mod multi_threaded;
+mod select;
+mod test;
 
 use clap::{value_parser, Arg, Command};
 
@@ -21,7 +23,9 @@ fn main() {
     
     let port = matches.get_one::<u32>("port").unwrap();
     // single_threaded::single_threaded_server(port);
-    multi_threaded::multi_threaded_server(port);
+    // multi_threaded::multi_threaded_server(port);
+    select::run();
+
 }
 
 
